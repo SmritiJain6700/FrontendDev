@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments for Post:</h1>
+    <div id="commentsContainer"></div>
+
+    <script>
+        // JavaScript to retrieve post ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('postId');
+        
+        function fetchAndDisplayComments() {
+            const commentsContainer = document.getElementById('commentsContainer');
+            commentsContainer.innerHTML = '';
+
+            // Fetch comments for the post from the API
+            const api_url = `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+            fetch(api_url)
+                .then((response) => response.json())
+                .then((comments) => {
+                    const commentsHeading = document.createElement('h3');
+                    commentsHeading.textContent = 'Comments:';
+
+                    const commentsList = document.createElement('ul');
+
+                    comments.forEach((comment) => {
+                        const commentItem = document.createElement('li');
+                        commentItem.textContent = comment.body;
+                        commentsList.appendChild(commentItem);
+                    });
+
+                    // Append heading and list to the comments container
+                    commentsContainer.appendChild(commentsHeading);
+                    commentsContainer.appendChild(commentsList);
+                })
+        }
+        fetchAndDisplayComments();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.post-card {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+
+button{
+    background: black;
+    border-radius: 50px;
+    padding: 10px;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+}
+
+.formm {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
